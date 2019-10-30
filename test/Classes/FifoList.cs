@@ -34,29 +34,24 @@
 
         public LinkedNode<T> Remove()
         {
-            LinkedNode<T> data;
             if (first == null)
-                data = null;
-            else
-            {
-                LinkedNode<T> old = first;
-                var firstNext = first.GetNext();
-                SetFirst(firstNext);
-                data = old;
-            }
-            return data;
+                return null;
+            
+            var old = first;
+            var firstNext = first.GetNext();
+            SetFirst(firstNext);
+            return old;
         }
 
         public void ClearList() => first = null;
 
         public int CountOfList()
         {
-            LinkedNode<T> cursor = GetFirst();
+            var cursor = GetFirst();
             var counter = 0;
             while (cursor != null)
             {
-                var cursorNext = cursor.GetNext();
-                cursor = cursorNext;
+                cursor = cursor.GetNext();
                 counter++;
             }
             return counter;
